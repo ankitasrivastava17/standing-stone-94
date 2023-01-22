@@ -1,0 +1,12 @@
+package com.masai.Exceptions;
+
+public class CustomerLoginException extends RuntimeException{
+	private static final long serialVersionUID = 1L;
+
+	public CustomerLoginException() {
+	}
+	
+	public CustomerLoginException(String message) {
+		super(message);
+	}
+}

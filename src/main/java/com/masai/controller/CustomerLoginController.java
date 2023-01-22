@@ -1,0 +1,30 @@
+package com.masai.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.masai.Model.CustomerLoginDTO;
+import com.masai.Service.CustomerLoginService;
+
+@RestController
+public class CustomerLoginController {
+	
+	@Autowired
+	private CustomerLoginService cs;
+	
+	//2 customer login 
+	@PostMapping("/customerLogin")
+	public String customerLogin(@RequestBody CustomerLoginDTO login) {
+		return cs.customerLogin(login);
+	}
+	
+	@PatchMapping("/customerLogout")
+	public String customerLogout(@RequestParam String uniqueId) {
+		return cs.customerLogout(uniqueId);
+	}
+
+}
